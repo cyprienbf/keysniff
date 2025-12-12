@@ -16,8 +16,6 @@ struct input_event {
     int32_t value;
 };
 
-static constexpr char KEYBOARD_PATH[] = "/dev/input/event0";
-
 bool is_key_pressed(int key);
 void listener();
 
