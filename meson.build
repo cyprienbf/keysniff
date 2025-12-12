@@ -9,17 +9,24 @@ project('keysniff', 'c',
   ]
 )
 
+# CURL
+curl_dep = dependency('libcurl')
+
 # Define the include directory
 inc_dir = include_directories('include')
 
 # Define source files
 sources = files(
   'src/main.c',
+  'src/input.c',
+  'src/network.c',
+  'src/utils.c'
 )
 
 # Create the executable
 executable('keysniff',
   sources,
   include_directories : inc_dir,
+  dependencies : curl_dep,
   install : false
 )

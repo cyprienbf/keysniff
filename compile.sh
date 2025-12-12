@@ -15,7 +15,7 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Exit immediately if a command exits with a non-zero status
+# Exit if a command exits with a non-zero status
 set -e
 
 echo -e "${YELLOW}[*] Checking environment...${NC}"
