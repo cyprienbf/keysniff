@@ -1,27 +1,18 @@
-#include <stdio.h>
-#include <stdint.h>
-
 #include "../include/config.h"
 #include "../include/network.h"
+#include "../include/input.h"
 
-int main(int argc, char *argv[])
+#include <stdio.h>
+
+int main()
 {
     char data[MAX_BUFFER_SIZE];
-    snprintf(data, sizeof(data), "test: %s", argc > 1 ? argv[1] : "default");
+    size_t current_len = 0;
 
-#ifdef DEBUG
-    printf("data: %s\n", data);
-#endif
-
-    if (network_init())
+    while (true)
     {
-        network_post(data);
-        network_clean();
+        listener(data, &current_len);
+        if (!send_data(data)) { return 1; };
     }
-    else
-    {
-        return 1;
-    }
-
     return 0;
 }

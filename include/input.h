@@ -1,25 +1,6 @@
-#ifndef INPUT_H
-#define INPUT_H
+#pragma once
 
-#include <stdint.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h>
 
-#include "config.h"
+void listener(char *buffer, size_t *current_len);
 
-#ifdef LINUX
-
-struct input_event {
-    // struct timeval time;
-    uint16_t type;
-    uint16_t code;
-    int32_t value;
-};
-
-bool is_key_pressed(int key);
-void listener();
-
-#endif
-
-// INPUT_H
-#endif

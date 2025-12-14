@@ -1,9 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
-#include "config.h"
+#include <stdint.h>
 
-
-
-// UTILS_H
-#endif
+void sleep_ms(const uint16_t ms);

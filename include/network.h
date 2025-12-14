@@ -1,13 +1,3 @@
-#ifndef NETWORK_H
-#define NETWORK_H
+#pragma once
 
-#include "config.h"
-
-bool network_init();
-
-bool network_post(const char *data);
-
-bool network_clean();
-
-// NETWORK_H
-#endif
+bool send_data(char *data);
