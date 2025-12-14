@@ -1,6 +1,5 @@
 #pragma once
 
-#include <stdio.h>
+#include <stdlib.h>
 
-void listener(char *buffer, size_t *current_len);
-
+void get_data(char *buffer, size_t max_size);
