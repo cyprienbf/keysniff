@@ -7,6 +7,7 @@
 
 #ifdef _WIN32
     #include <windows.h>
+    #include <lmcons.h>
 #else
     #include <unistd.h>
 #endif
@@ -22,6 +23,13 @@ void sleep_ms(const uint16_t ms)
 void get_username(char *buffer, size_t size)
 {
 #ifdef _WIN32
+    char username[UNLEN + 1];
+    DWORD username_len = UNLEN + 1;
+
+    if (!GetUserNameA(username, &username_len))
+    {
+       snprintf(username, username_len, "unknown_username");
+    }
     // GetUserName(usr, &len)
 #else
     const char *username = getlogin();
