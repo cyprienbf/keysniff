@@ -1,5 +1,5 @@
 services:
-  app:
+  npm:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     environment:
@@ -12,10 +12,10 @@ services:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
   logserver:
-    build: ./server/.
-    container_name: go-log-server
+    build: ./go_log_server/.
+    container_name: logserver
     volumes:
-      - ./server/logs:/app/logs
+      - ./go_log_server/logs:/app/logs
     restart: unless-stopped
 
 # NPM advanced config -> client_max_body_size 102400;
