@@ -5,7 +5,7 @@
 # =========================
 
 # Configuration
-BUILD_DIR="bin"
+BUILD_DIR="bin_linux"
 BINARY_NAME="keysniff"
 COMPILER="clang"
 

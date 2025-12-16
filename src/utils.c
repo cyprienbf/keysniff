@@ -2,13 +2,13 @@
 
 #include <assert.h>
 #include <stdint.h>
-#include <threads.h>
 #include <time.h>
 
 #ifdef _WIN32
     #include <lmcons.h>
     #include <windows.h>
 #else
+    #include <threads.h>
     #include <unistd.h>
 #endif
 
@@ -16,11 +16,14 @@ void sleep_ms(const uint16_t ms)
 {
     LOG("Sleeping for %u ms", ms);
 
+#ifdef _WIN32
+    Sleep(ms);
+#else
     struct timespec ts;
     ts.tv_sec = ms / 1000;
     ts.tv_nsec = (ms % 1000) * 1000000;
-
     thrd_sleep(&ts, nullptr);
+#endif
 }
 
 void get_username(char *buffer, size_t size)

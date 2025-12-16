@@ -10,7 +10,7 @@ project('keysniff', 'c',
 )
 
 # CURL
-curl_dep = dependency('libcurl')
+curl_dep = dependency('libcurl', fallback : ['curl', 'curl_dep'])
 
 # Define the include directory
 inc_dir = include_directories('include')

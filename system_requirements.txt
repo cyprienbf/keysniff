@@ -1,6 +1,12 @@
+# Compilation
 clang
 meson
 ninja
 libcurl
 pkg-config
 ca-certificates
+
+# Windows cross-compilation
+mingw-w64-gcc
+llvm
+ld

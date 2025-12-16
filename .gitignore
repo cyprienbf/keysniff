@@ -60,7 +60,8 @@ dkms.conf
 
 # Meson
 builddir/
-bin/
+bin*
+subprojects/
 
 # Others
 test.c

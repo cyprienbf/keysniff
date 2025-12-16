@@ -1,0 +1,20 @@
+[binaries]
+c = 'clang'
+cpp = 'clang++'
+ar = 'llvm-ar'
+strip = 'llvm-strip'
+objcopy = 'llvm-objcopy'
+ld = 'lld-link'
+pkg-config = 'pkg-config'
+
+[built-in options]
+c_args = ['--target=x86_64-w64-mingw32', '-D_WIN32_WINNT=0x0601']
+cpp_args = ['--target=x86_64-w64-mingw32', '-D_WIN32_WINNT=0x0601']
+c_link_args = ['--target=x86_64-w64-mingw32', '-fuse-ld=lld']
+cpp_link_args = ['--target=x86_64-w64-mingw32', '-fuse-ld=lld']
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
