@@ -1,6 +1,3 @@
-# Meson
-builddir/
-
 # Prerequisites
 *.d
 
@@ -61,4 +58,9 @@ dkms.conf
 .vscode/
 .idea/
 
+# Meson
+builddir/
+bin/
+
+# Others
 test.c
