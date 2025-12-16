@@ -48,6 +48,9 @@ EOF
         --buildtype=release \
         --force-fallback-for=libcurl \
         \
+        --default-library static \
+        -Dc_link_args='-static' \
+        \
         -Dcurl:tool=disabled \
         -Dcurl:tests=disabled \
         -Dcurl:unittests=disabled \
