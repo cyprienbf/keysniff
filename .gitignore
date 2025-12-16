@@ -59,9 +59,10 @@ dkms.conf
 .idea/
 
 # Meson
-builddir/
-bin*
+build*/
+bin*/
 subprojects/
 
 # Others
 test.c
+*.txt
