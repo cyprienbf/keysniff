@@ -120,3 +120,9 @@ void get_time(char *buffer, size_t size)
         }
     }
 }
+
+bool reset()
+{
+    // reset buffer and curl if data return false then retry
+    return false;
+}
