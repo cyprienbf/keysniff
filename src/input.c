@@ -4,6 +4,7 @@
 
 #include <assert.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 
 #ifdef _WIN32
@@ -49,16 +50,17 @@ static bool is_any_key_pressed(char *key_pressed)
             }
         }
     }
-    return false;
-
 #else
     // TODO: Implement Linux key polling
     // Example: Read from /dev/input/eventX
-
-    // *key_pressed = ...;
-    // return true;
-    return false;
+    const char key = (char)getchar();
+    if (key != EOF)
+    {
+        *key_pressed = key;
+        return true;
+    }
 #endif
+    return false;
 }
 
 void get_data(char *buffer, size_t max_size)
